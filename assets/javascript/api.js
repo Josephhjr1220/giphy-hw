@@ -3,6 +3,7 @@ $( document ).ready(function() {
 var animals = ["Dog","Cat", "Panda", "Kangaroo", "Honey Badger", "Turtle", "Llama"];
 
 function displayGifButtons(){
+    
 
     $("#gifButtonsView").empty();
     // erasing anything in this div
@@ -19,9 +20,11 @@ function displayGifButtons(){
 // Function to add a new action button
 function addNewButton(){
     $("#addGif").on("click", function(){
-    var animal = $("#action-input").val().trim();
+    var animal = $("#animal-input").val().trim();
 
+    animals.push(animal);
     displayGifButtons();
+    event.preventDefault()
     });
 }
 
@@ -68,6 +71,7 @@ function displayGifs(){
 // calling functions/ methods
 displayGifButtons();
 addNewButton();
+
 
 // animate/ still
 $(document).on("click", ".action", displayGifs);
